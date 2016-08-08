@@ -10,18 +10,17 @@ var app = new FastBoot({
 exports.handler = function(event, context) {
   var options = {
     request: {
-      headers: event.headers || {},
+      headers: {},
       get: function() {}
     },
     response: {}
   };
 
   app.visit(event.path, options)
-    .then(function (result) {
+    .then(function(result) {
       return result.html();
     })
-    .then(context.succeed)
-    .catch(function() {
-      context.fail(new Error('500 AWS Lambda Error'));
+    .then(function(html) {
+      context.succeed({ html: html });
     });
 };
