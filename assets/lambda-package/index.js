@@ -10,7 +10,9 @@ var app = new FastBoot({
 exports.handler = function(event, context) {
   var options = {
     request: {
-      headers: {},
+      headers: {
+        cookie: event.cookie
+      },
       get: function() {}
     },
     response: {}
