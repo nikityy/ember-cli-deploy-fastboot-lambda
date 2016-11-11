@@ -18,17 +18,19 @@ exports.handler = function(event, context) {
     response: {}
   };
 
-  var statusCode;
+  var statusCode, location;
 
   app.visit(event.path, options)
     .then(function(result) {
       statusCode = result.statusCode;
+      location = result.headers.location;
       return result.html();
     })
     .then(function(html) {
       context.succeed({
         html: html,
-        statusCode: statusCode
+        statusCode: statusCode,
+        location: location
       });
     });
 };
