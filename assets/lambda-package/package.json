@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "fastboot": "git+https://github.com/ember-fastboot/fastboot.git#v1.0.0-rc.0"
+    "fastboot": "1.0.0-rc.0"
   }
 }
