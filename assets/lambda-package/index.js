@@ -18,7 +18,7 @@ exports.handler = function(event, context) {
   };
 
   if (event.cookie) {
-    options.headers.cookie = event.cookie;
+    options.request.headers.cookie = event.cookie;
   }
 
   var statusCode, location;
