@@ -11,12 +11,15 @@ exports.handler = function(event, context) {
   var options = {
     request: {
       headers: {
-        cookie: event.cookie
       },
       get: function() {}
     },
     response: {}
   };
+
+  if (event.cookie) {
+    options.request.headers.cookie = event.cookie;
+  }
 
   var statusCode, location;
 
